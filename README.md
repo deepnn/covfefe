@@ -1,13 +1,17 @@
-# Bunna (coffee in Amharic): A deep learning wrapper for Caffe, Theano, and TensorFlow
+# coffee (bunna in Amharic): A deep learning wrapper for Caffe, Theano, and TensorFlow
 
 [![Documentation Status](https://readthedocs.org/projects/bunna/badge/?version=latest)](http://bunna.readthedocs.io/en/latest/?badge=latest)
 [![license](https://img.shields.io/github/license/mashape/apistatus.svg?maxAge=2592000)](https://github.com/deepnn/bunna/blob/master/LICENSE)
 
-## Welcome to Bunna (coffee)
+## Welcome to coffee
 
-Bunna (coffee) is a light weight python wrapper for the three major frameworks:   [Caffe](https://github.com/BVLC/caffe), [TensorFlow](https://github.com/tensorflow/tensorflow), and [Theano](https://github.com/Theano/Theano).
+coffee is a light weight python wrapper for the three major frameworks:   [Caffe](https://github.com/BVLC/caffe), [TensorFlow](https://github.com/tensorflow/tensorflow), and [Theano](https://github.com/Theano/Theano).
 
-Bunna (coffee) has the following advantages compared to other wrapper libraries:
+coffee is inspired by keras as a one-stop-wrapper for different backends with unified API but with one major exception: 
+
+- coffee's major principle is unifying API without sacrificing transparency to the underlying frameworks. This will make the wrapper lightweight enough to give a unified API without obscuring the powerful tools of the frameworks with the option to directly expose the power of the underlying framework directly, similar to Lasagne.
+
+coffee has the following advantages compared to other wrapper libraries:
 
 - It is designed to be as transparent as TFLearn and Lasagne (which lacks simpler and standard interface) with an easy interface like keras (which lacks transparency to the underlying backends)
 - It is designed to be lightweight, easy to experiment with and modular with a common scikit compatible interface.
