@@ -65,7 +65,7 @@ if _FRAMEWORK == 'theano':
     from .theano import *
 elif _FRAMEWORK == 'tensorflow':
     sys.stderr.write('Using TensorFlow framework.\n')
-    from .tensorflow import *
+    from .tf import *
 elif _FRAMEWORK == 'caffe':
     sys.stderr.write('Using Caffe framework.\n')
     from .caffe import *
