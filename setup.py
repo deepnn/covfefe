@@ -13,7 +13,10 @@ setup(name='coffee',
       install_requires=[
           'theano', 
           'pyyaml', 
-          'six'
+          'six',
+          'caffe',
+          'lasagne',
+          'tflearn'
       ],
       extras_require={
           'h5py': ['h5py'],
