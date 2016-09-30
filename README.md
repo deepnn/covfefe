@@ -1,11 +1,11 @@
-# coffee (bunna in Amharic): A deep learning wrapper for Caffe, Theano, and TensorFlow
+# coffee: A deep learning wrapper for Caffe, Theano, and TensorFlow
 
 [![Documentation Status](https://readthedocs.org/projects/bunna/badge/?version=latest)](http://bunna.readthedocs.io/en/latest/?badge=latest)
 [![license](https://img.shields.io/github/license/mashape/apistatus.svg?maxAge=2592000)](https://github.com/deepnn/bunna/blob/master/LICENSE)
 
 ## Welcome to coffee
 
-coffee is a light weight python wrapper for the three major frameworks:   [Caffe](https://github.com/BVLC/caffe), [TensorFlow](https://github.com/tensorflow/tensorflow), and [Theano](https://github.com/Theano/Theano).
+coffee (bunna in Amharic) is a light weight python wrapper for the three major frameworks:   [Caffe](https://github.com/BVLC/caffe), [TensorFlow](https://github.com/tensorflow/tensorflow), and [Theano](https://github.com/Theano/Theano).
 
 coffee is inspired by keras as a one-stop-wrapper for different backends with unified API but with one major exception: 
 
