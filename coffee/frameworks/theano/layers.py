@@ -1,4 +1,5 @@
 from __future__ import absolute_import
+from __future__ import print_function
 
 from lasagne.layers import get_all_layers
 from lasagne.layers import get_output
