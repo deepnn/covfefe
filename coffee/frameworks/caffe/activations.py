@@ -1,5 +1,5 @@
 """
-Activation functions for common API wrapper.
+Activation functions common API wrappers for caffe frameowrk.
 """
 from __future__ import absolute_import
 from __future__ import print_function
