@@ -1,6 +1,6 @@
 # coffee: A Deep Learning Wrapper for Major Frameworks
 
-[![Documentation Status](https://readthedocs.org/projects/bunna/badge/?version=latest)](http://bunna.readthedocs.io/en/latest/?badge=latest)
+[![Documentation Status](https://readthedocs.org/projects/coffee/badge/?version=latest)](http://coffee.readthedocs.io/en/latest/?badge=latest)
 [![license](https://img.shields.io/github/license/mashape/apistatus.svg?maxAge=2592000)](https://github.com/deepnn/bunna/blob/master/LICENSE)
 
 ## Welcome to coffee
