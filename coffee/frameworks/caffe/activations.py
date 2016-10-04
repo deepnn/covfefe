@@ -1,7 +1,7 @@
-from __future__ import absolute_import
 """
 Activation functions for common API wrapper.
 """
+from __future__ import absolute_import
 from __future__ import print_function
 
 from caffe.net_spec import NetSpec, to_proto
