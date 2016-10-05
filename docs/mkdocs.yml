@@ -1,6 +1,7 @@
 site_name: coffee
-docs_dir: templates
+docs_dir: .
 theme: readthedocs
-
-pages:
+extra_css: [extra.css]
+page:
 - Home: index.md
+- Test: templates/test.md

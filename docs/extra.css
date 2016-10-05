@@ -1,0 +1,19 @@
+.wy-side-nav-search {
+    background-color: #995533;
+}
+
+.wy-menu-vertical li ul li a {
+    color: #ffffff;
+}
+
+.wy-menu-vertical span {
+    color: #ffffff;
+}
+
+.wy-nav-side {
+    background: #995533;
+}
+
+.rst-versions .rst-current-version {
+    background-color: #995533;
+}
