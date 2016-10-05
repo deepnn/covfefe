@@ -1,4 +1,6 @@
 site_name: coffee
+docs_dir: templates
+theme: readthedocs
+
 pages:
 - Home: index.md
-theme: readthedocs
