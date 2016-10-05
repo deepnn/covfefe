@@ -1,0 +1,4 @@
+site_name: coffee
+pages:
+- Home: index.md
+theme: readthedocs
