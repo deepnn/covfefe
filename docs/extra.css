@@ -1,5 +1,5 @@
 .wy-side-nav-search {
-    background-color: #995533;
+    background-color: #7B3F00; //#995533;
 }
 
 .wy-menu-vertical li ul li a {
@@ -11,9 +11,9 @@
 }
 
 .wy-nav-side {
-    background: #995533;
+    background: #7B3F00; //#995533;
 }
 
 .rst-versions .rst-current-version {
-    background-color: #995533;
+    background-color: #7B3F00; //#995533;
 }
