@@ -1,3 +1,5 @@
+#!/usr/bin/python
+# -*- coding: iso-8859-15 -*-
 """
 Activation functions common API wrappers for theano frameowrk.
 """
