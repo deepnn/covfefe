@@ -1,0 +1,19 @@
+site_name: coffee
+docs_dir: .
+theme: readthedocs
+extra_css:
+- extra.css
+extra_javascript: 
+- http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML
+
+markdown_extensions:
+- mdx_math
+#    enable_dollar_delimiter: True #for use of inline $..$
+- fenced_code
+- codehilite
+- footnotes
+
+page:
+- Home: README.md
+- Index: docs/index.md
+- Test: docs/templates/test.md

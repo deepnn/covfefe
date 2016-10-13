@@ -1,3 +1,5 @@
+Couldn't import dot_parser, loading of dot files will not be possible.
+
 # activations Module
 > Activation functions common API wrappers for theano frameowrk.
 
@@ -7,11 +9,11 @@
 
 ##### `elu(x)` 
 
-> Exponential Linear Unit :math:`\varphi(x) = (x > 0) ? x : e^x - 1`
+> Exponential Linear Unit $$\varphi(x) = (x > 0) ? x : e^x - 1$$
 >     The Exponential Linear Unit (ELU) was introduced in [1]_. Compared to the
->     linear rectifier :func:`rectify`, it has a mean activation closer to zero
+>     linear rectifier :func:$$rectify$$, it has a mean activation closer to zero
 >     and nonzero gradient for negative input, which can help convergence.
->     Compared to the leaky rectifier :class:`LeakyRectify`, it saturates for
+>     Compared to the leaky rectifier :class:$$LeakyRectify$$, it saturates for
 >     highly negative inputs.
 >     Parameters
 >     ----------
@@ -23,7 +25,7 @@
 >         The output of the exponential linear unit for the activation.
 >     Notes
 >     -----
->     In [1]_, an additional parameter :math:`\alpha` controls the (negative)
+>     In [1]_, an additional parameter $$\alpha$$ controls the (negative)
 >     saturation value for negative inputs, but is set to 1 for all experiments.
 >     It is omitted here.
 >     References
@@ -36,7 +38,7 @@
 
 ##### `identity(x)` 
 
-> Linear activation function :math:`\varphi(x) = x`
+> Linear activation function $$\varphi(x) = x$$
 >     Parameters
 >     ----------
 >     x : float32
@@ -50,7 +52,7 @@
 
 ##### `linear(x)` 
 
-> Linear activation function :math:`\varphi(x) = x`
+> Linear activation function $$\varphi(x) = x$$
 >     Parameters
 >     ----------
 >     x : float32
@@ -64,7 +66,7 @@
 
 ##### `relu(x)` 
 
-> Rectify activation function :math:`\varphi(x) = \max(0, x)`
+> Rectify activation function $$\varphi(x) = \max(0, x)$$
 >     Parameters
 >     ----------
 >     x : float32
@@ -78,7 +80,7 @@
 
 ##### `sigmoid(x)` 
 
-> Sigmoid activation function :math:`\varphi(x) = \frac{1}{1 + e^{-x}}`
+> Sigmoid activation function $$\varphi(x) = \frac{1}{1 + e^{-x}}$$
 >     Parameters
 >     ----------
 >     x : float32
@@ -93,9 +95,9 @@
 ##### `softmax(x)` 
 
 > Softmax activation function
->     :math:`\varphi(\mathbf{x})_j =
->     \frac{e^{\mathbf{x}_j}}{\sum_{k=1}^K e^{\mathbf{x}_k}}`
->     where :math:`K` is the total number of neurons in the layer. This
+>     $$\varphi(\mathbf{x})_j =
+>     \frac{e^{\mathbf{x}_j}}{\sum_{k=1}^K e^{\mathbf{x}_k}}$$
+>     where $$K$$ is the total number of neurons in the layer. This
 >     activation function gets applied row-wise.
 >     Parameters
 >     ----------
@@ -110,7 +112,7 @@
 
 ##### `softplus(x)` 
 
-> Softplus activation function :math:`\varphi(x) = \log(1 + e^x)`
+> Softplus activation function $$\varphi(x) = \log(1 + e^x)$$
 >     Parameters
 >     ----------
 >     x : float32
@@ -124,7 +126,7 @@
 
 ##### `tanh(x)` 
 
-> Tanh activation function :math:`\varphi(x) = \tanh(x)`
+> Tanh activation function $$\varphi(x) = \tanh(x)$$
 >     Parameters
 >     ----------
 >     x : float32
