@@ -1,5 +1,5 @@
 site_name: coffee
-docs_dir: .
+docs_dir: docs
 theme: readthedocs
 extra_css:
 - extra.css
@@ -14,5 +14,5 @@ markdown_extensions:
 #- footnotes
 
 page:
-- Home: index.md
-- Test: templates/test.md
+- Home: docs/index.md
+- Test: docs/templates/test.md
