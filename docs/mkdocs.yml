@@ -1,7 +1,7 @@
 site_name: Coffee Documetation
 site_author: Esube Bekele 
 repo_url: https://github.com/deepnn/coffee
-docs_dir: 'docs'
+docs_dir: './'
 theme: readthedocs
 
 
