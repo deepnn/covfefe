@@ -1,7 +1,7 @@
 site_name: Coffee Documetation
 site_author: Esube Bekele 
 repo_url: https://github.com/deepnn/coffee
-docs_dir: './'
+docs_dir: 'docs'
 theme: readthedocs
 
 
@@ -10,15 +10,15 @@ python:
     setup_py_install: true
 
 markdown_extensions: 
-    - mdx_math:
-        enable_dollar_delimiter: True
+#- mdx_math:
+#        enable_dollar_delimiter: True
 #for use of inline $..$
     - fenced_code
     - codehilite
     - footnotes
 
-extra_css: [./css/extra.css]
-extra_javascript: ['https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML']
+extra_css: [css/extra.css]
+#extra_javascript: ['https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML']
 
 page:
 - Home: docs/index.md
