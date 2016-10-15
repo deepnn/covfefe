@@ -9,14 +9,15 @@ python:
     version: 2 # for unicode
     setup_py_install: true
 
-markdown_extensions:
-    - mdx_math
-#enable_dollar_delimiter: True #for use of inline $..$
+markdown_extensions: 
+    - mdx_math:
+        enable_dollar_delimiter: True
+#for use of inline $..$
     - fenced_code
     - codehilite
     - footnotes
 
-extra_css: [css/extra.css]
+extra_css: [./css/extra.css]
 extra_javascript: ['https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML']
 
 page:
