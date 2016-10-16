@@ -1,4 +1,3 @@
-Couldn't import dot_parser, loading of dot files will not be possible.
 
 # activations Module
 > Activation functions common API wrappers for theano frameowrk.
