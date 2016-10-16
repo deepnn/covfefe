@@ -6,7 +6,7 @@ import tflearn.layers as L
 
 # core: Data, Dropout, Reshape, Permute, RepeatVevtor, Dense
 def data(placeholder=None):
-    def f(shape=None, , dtype=tf.float32,
+    def f(shape=None, dtype=tf.float32,
              data_preprocessing=None, data_augmentation=None,
              name='data'):
              
