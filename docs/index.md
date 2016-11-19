@@ -23,11 +23,14 @@ coffee has the following advantages compared to other wrapper libraries:
 ```python
 # Simple model that demonstrates the simplified API (very similar interface as keras)
 # But supports more frameworks as a backend and is very transparent
-# No allocations of additional and unnecessary memory, no unnecessarily complicated 
-# pre and post processings such as gradient clipping, unintentional internal learning rate decay
-# More importantly, exposes the framework details like lasagne by allowing 
-# training, validation, update, testing functions as parameters to the main trainin  and predict 
-# loops
+# No allocations of additional and unnecessary memory, 
+# no unnecessarily complicated 
+# pre and post processings such as gradient clipping, 
+# unintentional internal learning rate decay
+# More importantly, exposes the framework details 
+# like lasagne by allowing 
+# training, validation, update, testing functions 
+# as parameters to the main trainin  and predict loops
 
 n_f = 32
 ch = 1
@@ -36,28 +39,38 @@ n_conv = 3
 n_dense = 128
 n_classes = 10
 
-input = Input(input_shape=(ch,row,col),data_source='mnist.lmdb',batch_size=64)
+input = Input(input_shape=(ch,row,col), 
+			  data_source='mnist.lmdb', batch_size=64)
 
-# Note: there's no need to specify 1D, 2D, etc in the layers as that'd be inferred from 
-# the input data shape that is specified in the input layer above
+# Note: there's no need to specify 1D, 2D, etc 
+# in the layers as that'd be inferred from 
+# the input data shape that is specified 
+# in the input layer above
 
-conv_1 = Convolution(ch, n_conv, n_conv, border_mode='same', activation='relu')(input)
-conv_2 = Convolution(n_f, n_conv, n_conv, border_mode='same', activation='relu',
-                       subsample=(2, 2))(conv_1)
-conv_3 = Convolution(n_f*2, n_conv, n_conv, border_mode='same', activation='relu',
-                       subsample=(2, 2))(conv_2)
-conv_4 = Convolution(n_f*4, n_conv, n_conv, border_mode='same', activation='relu',
-                       subsample=(2, 2))(conv_3)
+conv_1 = Convolution(ch, n_conv, n_conv, 
+					 border_mode='same', activation='relu')(input)
+conv_2 = Convolution(n_f, n_conv, n_conv, 
+					 border_mode='same', activation='relu',
+                     subsample=(2, 2))(conv_1)
+conv_3 = Convolution(n_f*2, n_conv, n_conv, 
+					 border_mode='same', activation='relu',
+                     subsample=(2, 2))(conv_2)
+conv_4 = Convolution(n_f*4, n_conv, n_conv, 
+					 border_mode='same', activation='relu',
+                     subsample=(2, 2))(conv_3)
 flat = Flatten()(conv_4)
 d_1 = Dense(n_dense, activation='relu')(flat)
 d_2 = Dense(n_dense/2, activation='relu')(d_1)
 o_1 = Dense(n_classes, activation='softmax')(d_2)
 model = Model(inputs=[input], outputs=[o_1])
-model.compile(losses=['categorical_crossentropy'], optimizers=['SGD'], loss_weights=[1.0])
+model.compile(losses=['categorical_crossentropy'], 
+			  optimizers=['SGD'], loss_weights=[1.0])
 
-model.fit(X, Y, train_func='', val_func='') # Here the internal framework could be exposed
+model.fit(X, Y, train_func='', val_func='') 
+# Here the internal framework could be exposed
 ```
-You can find more examples in the example directory and the documentation at [Coffee Docs](http://coffeenet.ml/)
+You can find more examples in the example directory and 
+the documentation at [Coffee Docs](http://coffeenet.ml/)
 
 ## Installation
 Coming soon...
