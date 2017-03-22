@@ -1,15 +1,20 @@
 #!/usr/bin/python
 # -*- coding: iso-8859-15 -*-
 """
-Activation functions common API wrappers for theano frameowrk.
+Activation functions common API wrappers for torch frameowrk.
 """
-from __future__ import absolute_import, print_function
 
-import lasagne.nonlinearities as L
+
+
+
+
+
+
+
 
 # sigmoid
 def sigmoid(x):
-    """Sigmoid activation function $$\\varphi(x) = \\frac{1}{1 + e^{-x}}$$
+    """Sigmoid activation function :math:`\\varphi(x) = \\frac{1}{1 + e^{-x}}`
     Parameters
     ----------
     x : float32
@@ -19,15 +24,15 @@ def sigmoid(x):
     float32 in [0, 1]
         The output of the sigmoid function applied to the activation.
     """
-    return L.sigmoid(x)
+    return L.Sigmoid(x)
 
 
 # softmax (row-wise)
 def softmax(x):
     """Softmax activation function
-    $$\\varphi(\\mathbf{x})_j =
-    \\frac{e^{\mathbf{x}_j}}{\sum_{k=1}^K e^{\mathbf{x}_k}}$$
-    where $$K$$ is the total number of neurons in the layer. This
+    :math:`\\varphi(\\mathbf{x})_j =
+    \\frac{e^{\mathbf{x}_j}}{\sum_{k=1}^K e^{\mathbf{x}_k}}`
+    where :math:`K` is the total number of neurons in the layer. This
     activation function gets applied row-wise.
     Parameters
     ----------
@@ -38,11 +43,31 @@ def softmax(x):
     float32 where the sum of the row is 1 and each single value is in [0, 1]
         The output of the softmax function applied to the activation.
     """
-    return L.softmax(x)
+    return L.Softmax(x)
     
+# softmax (row-wise)
+def softmax_with_loss(x, labels):
+    """Softmax activation function
+    :math:`\\varphi(\\mathbf{x})_j =
+    \\frac{e^{\mathbf{x}_j}}{\sum_{k=1}^K e^{\mathbf{x}_k}}`
+    where :math:`K` is the total number of neurons in the layer. This
+    activation function gets applied row-wise.
+    Parameters
+    ----------
+    x : float32
+        The activation (the summed, weighted input of a neuron).
+    labels : float32
+        The labels (the target input to a loss layer).
+    Returns
+    -------
+    float32 where the sum of the row is 1 and each single value is in [0, 1]
+        The output of the softmax_with_loss function applied to the activation.
+    """
+    return L.SoftmaxWithLoss(x, labels)
+
 # tanh
 def tanh(x):
-    """Tanh activation function $$\\varphi(x) = \\tanh(x)$$
+    """Tanh activation function :math:`\\varphi(x) = \\tanh(x)`
     Parameters
     ----------
     x : float32
@@ -52,11 +77,11 @@ def tanh(x):
     float32 in [-1, 1]
         The output of the tanh function applied to the activation.
     """
-    return L.tanh(x)
+    return L.TanH(x)
 
 # rectify
 def relu(x):
-    """Rectify activation function $$\\varphi(x) = \\max(0, x)$$
+    """Rectify activation function :math:`\\varphi(x) = \\max(0, x)`
     Parameters
     ----------
     x : float32
@@ -66,15 +91,15 @@ def relu(x):
     float32
         The output of the rectify function applied to the activation.
     """
-    return L.rectify(x)
+    return L.ReLU(x, in_place=True)
 
 # elu
 def elu(x):
-    """Exponential Linear Unit $$\\varphi(x) = (x > 0) ? x : e^x - 1$$
+    """Exponential Linear Unit :math:`\\varphi(x) = (x > 0) ? x : e^x - 1`
     The Exponential Linear Unit (ELU) was introduced in [1]_. Compared to the
-    linear rectifier :func:$$rectify$$, it has a mean activation closer to zero
+    linear rectifier :func:`rectify`, it has a mean activation closer to zero
     and nonzero gradient for negative input, which can help convergence.
-    Compared to the leaky rectifier :class:$$LeakyRectify$$, it saturates for
+    Compared to the leaky rectifier :class:`LeakyRectify`, it saturates for
     highly negative inputs.
     Parameters
     ----------
@@ -86,7 +111,7 @@ def elu(x):
         The output of the exponential linear unit for the activation.
     Notes
     -----
-    In [1]_, an additional parameter $$\\alpha$$ controls the (negative)
+    In [1]_, an additional parameter :math:`\\alpha` controls the (negative)
     saturation value for negative inputs, but is set to 1 for all experiments.
     It is omitted here.
     References
@@ -95,12 +120,12 @@ def elu(x):
        Fast and Accurate Deep Network Learning by Exponential Linear Units
        (ELUs), http://arxiv.org/abs/1511.07289
     """
-    return L.elu(x)
+    return L.ELU(x)
 
 
 # softplus
 def softplus(x):
-    """Softplus activation function $$\\varphi(x) = \\log(1 + e^x)$$
+    """Softplus activation function :math:`\\varphi(x) = \\log(1 + e^x)`
     Parameters
     ----------
     x : float32
@@ -110,12 +135,14 @@ def softplus(x):
     float32
         The output of the softplus function applied to the activation.
     """
-    return L.softplus(x)
+    print('Softplus is NOT implemented in caffe framework')
+    # TODO: implement it using caffe python layer
+    raise NotImplementedError
 
 
 # linear
 def linear(x):
-    """Linear activation function $$\\varphi(x) = x$$
+    """Linear activation function :math:`\\varphi(x) = x`
     Parameters
     ----------
     x : float32
@@ -127,4 +154,4 @@ def linear(x):
     """
     return x
 
-identity = linear
+identity = linear 
