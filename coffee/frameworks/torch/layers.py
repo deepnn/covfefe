@@ -11,10 +11,10 @@ def dense(in_size, out_size, bias=True):
                     bias=bias)
 
 # Dropout
-def dropout(p=0.5, inplace=False):
+def dropout(p=0.5, inplace=False, dim=2):
     
     #TODO: in the future some preprocessing goes here
-    in_dim = x.dim()
+    in_dim = dim
     if in_dim == 1:
         return nn.Dropout(p=p, inplace=inplace)
 
@@ -27,10 +27,10 @@ def dropout(p=0.5, inplace=False):
 # convolutional
 # Regular convolution
 def conv(in_ch, out_ch, kernel_size,
-            stride=1, padding=0, dilation=1, groups=1, bias=True):
+            stride=1, padding=0, dilation=1, groups=1, bias=True, dim=2):
     
     #TODO: in the future some preprocessing goes here
-    in_dim = x.dim()
+    in_dim = dim
     if in_dim == 1:
         return nn.Conv1d(in_ch, out_ch, kernel_size,
                         stride=stride,
@@ -57,10 +57,10 @@ def conv(in_ch, out_ch, kernel_size,
 # Transposed Concolution
 def conv_transpose(in_ch, out_ch, kernel_size,
                       stride=1, padding=0, out_padding=0, 
-                      dilation=1, groups=1, bias=True):
+                      dilation=1, groups=1, bias=True, dim=2):
     
     #TODO: in the future some preprocessing goes here
-    in_dim = x.dim()
+    in_dim = dim
     if in_dim == 1:
         return nn.ConvTranspose1d(in_ch, out_ch, kernel_size,
                         stride=stride,
@@ -92,9 +92,9 @@ def conv_transpose(in_ch, out_ch, kernel_size,
 def pool(kernel_size, power=2, output_size=None, 
             out_ratio=None, stride=None, padding=0, 
             dilation=1, return_indices=False, ceil_mode=False, 
-            mode='max', count_include_pad=True, _random_samples=None):
+            mode='max', count_include_pad=True, _random_samples=None, dim=2):
     
-    in_dim = x.dim()
+    in_dim = dim
     if mode == 'max':
         if in_dim == 1:
             return nn.MaxPool1d(kernel_size=kernel_size, stride=stride, 
@@ -140,9 +140,9 @@ def pool(kernel_size, power=2, output_size=None,
                         stride=stride, ceil_mode=ceil_mode)
 
 # normalization
-def batch_norm(num_features, eps=1e-05, momentum=0.1, affine=True):
+def batch_norm(num_features, eps=1e-05, momentum=0.1, affine=True, dim=2):
     
-    in_dim = x.dim()
+    in_dim = dim
     if in_dim == 1:
         return nn.BatchNorm1d(num_features=num_features, 
                         eps=eps, 
