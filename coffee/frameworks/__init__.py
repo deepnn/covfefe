@@ -13,8 +13,8 @@ from .common import image_dim_ordering
 from .common import set_image_dim_ordering
 from .common import is_coffee_tensor
 
-frameworks = {'theano', 'tensorflow', 'caffe'}
-frameworks_dim_ordering = {'tf', 'th'}
+frameworks = {'theano', 'tensorflow', 'caffe', 'torch'}
+frameworks_dim_ordering = {'ch_first', 'ch_last'}
 float_types = {'float16', 'float32', 'float64'}
 
 _coffee_base_dir = os.path.expanduser('~')
@@ -26,7 +26,7 @@ if not os.path.exists(_coffee_dir):
     os.makedirs(_coffee_dir)
 
 
-_FRAMEWORK = 'theano'
+_FRAMEWORK = 'torch'
 
 _config_path = os.path.expanduser(os.path.join(_coffee_dir, 'coffee.json'))
 if os.path.exists(_config_path):
@@ -69,6 +69,9 @@ elif _FRAMEWORK == 'tensorflow':
 elif _FRAMEWORK == 'caffe':
     sys.stderr.write('Using Caffe framework.\n')
     from .caffe import *
+elif _FRAMEWORK == 'torch':
+    sys.stderr.write('Using torch framework.\n')
+    from .torch import *
 else:
     raise Exception('Unknown framework: ' + str(_FRAMEWORK))
 
