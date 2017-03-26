@@ -3,155 +3,66 @@
 """
 Activation functions common API wrappers for torch frameowrk.
 """
-
-
-
-
-
-
-
-
+import torch.nn as nn
 
 # sigmoid
 def sigmoid(x):
-    """Sigmoid activation function :math:`\\varphi(x) = \\frac{1}{1 + e^{-x}}`
-    Parameters
-    ----------
-    x : float32
-        The activation (the summed, weighted input of a neuron).
-    Returns
-    -------
-    float32 in [0, 1]
-        The output of the sigmoid function applied to the activation.
-    """
-    return L.Sigmoid(x)
+    return nn.Sigmoid()(x)
 
-
-# softmax (row-wise)
-def softmax(x):
-    """Softmax activation function
-    :math:`\\varphi(\\mathbf{x})_j =
-    \\frac{e^{\mathbf{x}_j}}{\sum_{k=1}^K e^{\mathbf{x}_k}}`
-    where :math:`K` is the total number of neurons in the layer. This
-    activation function gets applied row-wise.
-    Parameters
-    ----------
-    x : float32
-        The activation (the summed, weighted input of a neuron).
-    Returns
-    -------
-    float32 where the sum of the row is 1 and each single value is in [0, 1]
-        The output of the softmax function applied to the activation.
-    """
-    return L.Softmax(x)
-    
-# softmax (row-wise)
-def softmax_with_loss(x, labels):
-    """Softmax activation function
-    :math:`\\varphi(\\mathbf{x})_j =
-    \\frac{e^{\mathbf{x}_j}}{\sum_{k=1}^K e^{\mathbf{x}_k}}`
-    where :math:`K` is the total number of neurons in the layer. This
-    activation function gets applied row-wise.
-    Parameters
-    ----------
-    x : float32
-        The activation (the summed, weighted input of a neuron).
-    labels : float32
-        The labels (the target input to a loss layer).
-    Returns
-    -------
-    float32 where the sum of the row is 1 and each single value is in [0, 1]
-        The output of the softmax_with_loss function applied to the activation.
-    """
-    return L.SoftmaxWithLoss(x, labels)
-
+def log_sigmoid(x):
+    return nn.LogSigmoid()(x)
+   
 # tanh
 def tanh(x):
-    """Tanh activation function :math:`\\varphi(x) = \\tanh(x)`
-    Parameters
-    ----------
-    x : float32
-        The activation (the summed, weighted input of a neuron).
-    Returns
-    -------
-    float32 in [-1, 1]
-        The output of the tanh function applied to the activation.
-    """
-    return L.TanH(x)
+    return nn.Tanh()(x)
+
+def hard_tanh(x, min_val=-1, max_val=1, inplace=False):
+    return nn.Hardtanh(min_value=min_val, max_value=max_val, inplace=inplace)(x)
+
+def tanh_shrink(x):
+    return nn.Tanhshrink()(x)
 
 # rectify
-def relu(x):
-    """Rectify activation function :math:`\\varphi(x) = \\max(0, x)`
-    Parameters
-    ----------
-    x : float32
-        The activation (the summed, weighted input of a neuron).
-    Returns
-    -------
-    float32
-        The output of the rectify function applied to the activation.
-    """
-    return L.ReLU(x, in_place=True)
+def relu(x, relu6=False, inplace=False):
+    if relu6 == True:
+        return nn.ReLU6(inplace=inplace)(x)
+    else:
+        return nn.ReLU(inplace=inplace)(x)
 
-# elu
-def elu(x):
-    """Exponential Linear Unit :math:`\\varphi(x) = (x > 0) ? x : e^x - 1`
-    The Exponential Linear Unit (ELU) was introduced in [1]_. Compared to the
-    linear rectifier :func:`rectify`, it has a mean activation closer to zero
-    and nonzero gradient for negative input, which can help convergence.
-    Compared to the leaky rectifier :class:`LeakyRectify`, it saturates for
-    highly negative inputs.
-    Parameters
-    ----------
-    x : float32
-        The activation (the summed, weighed input of a neuron).
-    Returns
-    -------
-    float32
-        The output of the exponential linear unit for the activation.
-    Notes
-    -----
-    In [1]_, an additional parameter :math:`\\alpha` controls the (negative)
-    saturation value for negative inputs, but is set to 1 for all experiments.
-    It is omitted here.
-    References
-    ----------
-    .. [1] Djork-Arné Clevert, Thomas Unterthiner, Sepp Hochreiter (2015):
-       Fast and Accurate Deep Network Learning by Exponential Linear Units
-       (ELUs), http://arxiv.org/abs/1511.07289
-    """
-    return L.ELU(x)
+def leaky_relu(x, neg_slope=0.01, inplace=False):
+    return nn.LeakyReLU(negative_slope=neg_slope, inplace=inplace)(x)
 
+def elu(x, alpha=1.0, inplace=False):
+    return nn.ELU(alpha=alpha, inplace=inplace)(x)
 
-# softplus
-def softplus(x):
-    """Softplus activation function :math:`\\varphi(x) = \\log(1 + e^x)`
-    Parameters
-    ----------
-    x : float32
-        The activation (the summed, weighted input of a neuron).
-    Returns
-    -------
-    float32
-        The output of the softplus function applied to the activation.
-    """
-    print('Softplus is NOT implemented in caffe framework')
-    # TODO: implement it using caffe python layer
-    raise NotImplementedError
+def prelu(x, num_param=1, init=0.25):
+    return nn.PReLU(num_parameters=num_param, init=init)(x)
 
+# soft
+def softplus(x, beta=1, th=20):
+    return nn.Softplus(beta=beta, threshold=th)(x)
+
+def softmin(x):
+    return nn.Softmin()(x)
+
+def softmax(x):
+    return nn.Softmax()(x)
+
+def log_softmax(x):
+    return nn.LogSoftmax()(x)
+
+def soft_shrink(x, lam=0.5):
+    return nn.Softshrink(lambd=lam)(x)
+
+def soft_sign(x):
+    return nn.Softsign()(x)
+
+# threshold
+def threshold(x, th, val, inplace=False):
+    return nn.Threshold(threshold=th, value=val, inplace=inplace)(x)
 
 # linear
 def linear(x):
-    """Linear activation function :math:`\\varphi(x) = x`
-    Parameters
-    ----------
-    x : float32
-        The activation (the summed, weighted input of a neuron).
-    Returns
-    -------
-    float32
-        The output of the identity applied to the activation.
-    """
     return x
 
 identity = linear 
