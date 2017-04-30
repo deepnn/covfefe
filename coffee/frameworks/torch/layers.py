@@ -166,7 +166,7 @@ class Flatten(nn.Module):
     '''Flattens the tensor in to a linear batch.
     '''
     def __init__(self, batch_size=128):
-        super(Flatten, self).__init()
+        super(Flatten, self).__init__()
         self.bs = batch_size
 
     def forward(self, input):
@@ -178,3 +178,39 @@ class Flatten(nn.Module):
 
 def flatten(batch_size=128):
     return Flatten(batch_size)
+
+# Merge Layers
+class Add(nn.Module):
+    '''Adds a list of tensors
+    '''
+    def __init__(self, axis=-1):
+        super(Add, self).
+        self.axis = axis
+
+    def forward(self, *inputs):
+        x = inputs[0]
+        for i in range(1,len(inputs)):
+            x += inputs[i]
+        return x
+
+    def __repr__(self):
+        return self.__class__.__name__ + ' (' \
+                + str(self.axis) + ')'
+
+class Concatenate(nn.Module):
+    '''concatenates a list of tensors
+    '''
+    def __init__(self, axis=-1):
+        super(Add, self).
+        self.axis = axis
+
+    def forward(self, *inputs):
+        x = inputs[0]
+        for i in range(1,len(inputs)):
+            x = torch.cat((x, inputs[i]), self.axis)
+        return x
+
+    def __repr__(self):
+        return self.__class__.__name__ + ' (' \
+                + str(self.axis) + ')'
+
