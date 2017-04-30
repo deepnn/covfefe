@@ -160,3 +160,21 @@ def batch_norm(num_features, eps=1e-05, momentum=0.1, affine=True, dim=2):
                         eps=eps, 
                         momentum=momentum, 
                         affine=affine)
+
+# flatten
+class Flatten(nn.Module):
+    '''Flattens the tensor in to a linear batch.
+    '''
+    def __init__(self, batch_size=128):
+        super(Flatten, self).__init()
+        self.bs = batch_size
+
+    def forward(self, input):
+        return input.view(self.bs, -1)
+
+    def __repr__(self):
+        return self.__class__.__name__ + ' (' \
+                + str(self.bs) + ')'
+
+def flatten(batch_size=128):
+    return Flatten(batch_size)
