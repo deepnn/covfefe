@@ -1,6 +1,7 @@
 from __future__ import absolute_import
 from __future__ import print_function
 import torch.nn as nn
+import torch as T
 
 # core: Dense, Dropout, Convolutional
 
@@ -207,7 +208,7 @@ class Concatenate(nn.Module):
     def forward(self, *inputs):
         x = inputs[0]
         for i in range(1,len(inputs)):
-            x = torch.cat((x, inputs[i]), self.axis)
+            x = T.cat((x, inputs[i]), self.axis)
         return x
 
     def __repr__(self):
