@@ -60,9 +60,3 @@ def soft_sign():
 # threshold
 def threshold(th, val, inplace=False):
     return nn.Threshold(threshold=th, value=val, inplace=inplace)
-
-# linear
-def linear(x):
-    return x
-
-identity = linear 

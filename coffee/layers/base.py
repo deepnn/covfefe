@@ -11,6 +11,7 @@ class Layer(object):
         self.input_layer = None
         
         self.name = name
+
     @property    
     def output_shape(self):
         shape = self.get_output_shape_for(self.input_shape)
@@ -26,6 +27,7 @@ class Layer(object):
 
 class MergeLayer(Layer):
     def __init__(self, shapes=None, name=None):
+        super(MergeLayer, self).__init__(shapes, name)
         self.input_shapes = shapes
         self.name = name
 
