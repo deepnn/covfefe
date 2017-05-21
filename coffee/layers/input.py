@@ -1,21 +1,24 @@
 from collections import OrderedDict
 
+from . import global_vars as U
+
 from .base import Layer
 
-import .utils as u #import all_layers, forwards, first_input
+
 
 __all__ = ["InputLayer"]
 
 class InputLayer(Layer):
+    '''
+        This serves to transmit the shape
+        It is not added as actual computational layer.
+        It is just a placeholder.
+    '''
     def __init__(self, shape, name=None, **kwargs):
+        super(InputLayer, self).__init__(**kwargs)
+
         self.shape = tuple(shape)
         self.name = name
-
-        #  the all_layers and forward lists if nor already
-        if u.first_input:
-            u.first_input = False
-            u.all_layers.clear()
-            u.forwards.clear()
 
     @property
     def output_shape(self):

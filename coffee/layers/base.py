@@ -7,33 +7,29 @@ __all__ = [
 
 class Layer(object):
     def __init__(self, shape=None, name=None):
-        self.input_shape = shape
-        self.input_layer = None
-        
+        self.shape = shape        
         self.name = name
 
     @property    
     def output_shape(self):
-        shape = self.get_output_shape_for(self.input_shape)
+        return self.shape
 
-        return shape
-
-    def __call__(self, incoming):
+    def __call__(self, inputs):
 
         raise NotImplementedError
 
     def get_output_shape_for(self, input_shape):
-        return input_shape
+        return NotImplementedError
 
 class MergeLayer(Layer):
     def __init__(self, shapes=None, name=None):
         super(MergeLayer, self).__init__(shapes, name)
-        self.input_shapes = shapes
+        self.shape = shapes
         self.name = name
 
+    @property
     def output_shape(self):
-        shape = self.get_output_shape_for(self.input_shapes)
-        return shape
+        return self.shape
 
     def get_output_shape_for(self, input_shapes):
         raise NotImplementedError

@@ -2,7 +2,7 @@ import numpy as np
 
 from .. import frameworks as T
 from .. import activations
-from .. import global_vars as u
+from .. import global_vars as U
 
 from .base import Layer
 
@@ -41,13 +41,13 @@ class Dense(Layer):
             
             # get the layers of all the inputs 
             args = (x.name for x in inputs)
-            self.name = u.add_layer(layer, self.name, args)
+            self.name = U.add_layer(layer, self.name, args)
             # depending on the activation add the activation layers as well with their arguments
             act = activations.get(self.activation)
             if act not in ['linear', None]:
                 name = self.activation
                 args = self.name
-                u.add_layer_acc(act, name, args)
+                U.add_layer_acc(act, name, args)
 
             return self
 
@@ -56,3 +56,7 @@ class Dense(Layer):
         
         def __str__(self):
             return self.name
+
+        @property
+        def output_shape(self):
+            return self.shape
