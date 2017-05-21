@@ -6,9 +6,6 @@ from .. import global_vars as u
 
 from .base import Layer
 
-
-
-
 __all__ = ["Dense"]
 
 class Dense(Layer):
@@ -22,14 +19,16 @@ class Dense(Layer):
                  name = None,
                  **kwargs):
         super(Dense, self).__init__(**kwargs)
+        
         if name == None:
-            name = 'Dense' + str(u.index)
+            name = 'Dense'
             self.name = name
-            u.index += 1
         else:
             self.name = name
+
         self.units = units
         self.activation = activaton
+        
         def __call__(self, inputs):
             # set input/output shapes
             self.input_shape = inputs.shape
@@ -39,20 +38,21 @@ class Dense(Layer):
             layer = T.dense(self.input_shape[1],
                             self.output_shape[1],
                             bias=use_bias)
-            # grab the all_layers and forward lists and add this layer and the function call with its arguments to the lists
-            u.all_layers[self.name] = layer
+            
             # get the layers of all the inputs 
             args = (x.name for x in inputs)
-            u.forwards.append((layer,) +  args)
+            self.name = u.add_layer(layer, self.name, args)
             # depending on the activation add the activation layers as well with their arguments
             act = activations.get(self.activation)
             if act not in ['linear', None]:
-                name = self.activation + str(u.activation)
-                u.all_layers[name] = act
+                name = self.activation
                 args = self.name
-                u.forwards.append((act,) + args)
+                u.add_layer_acc(act, name, args)
+
             return self
 
         def get_output_shape_for(self, input_shape):
             return input_shape[:1] + (self.units,)
-
+        
+        def __str__(self):
+            return self.name
