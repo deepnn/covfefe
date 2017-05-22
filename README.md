@@ -1,23 +1,28 @@
-# coffee: A Deep Learning Wrapper for Major Frameworks
+# coffee: A Deep Learning Wrapper for deep learning Frameworks
 
 [![Documentation Status](https://readthedocs.org/projects/coffee/badge/?version=latest)](http://coffee.readthedocs.io/en/latest/?badge=latest)
 [![license](https://img.shields.io/github/license/mashape/apistatus.svg?maxAge=2592000)](https://github.com/deepnn/bunna/blob/master/LICENSE)
 
 ## Welcome to coffee
 
-coffee (bunna in Amharic) is a light weight python wrapper for the three major frameworks:   [Caffe](https://github.com/BVLC/caffe), [TensorFlow](https://github.com/tensorflow/tensorflow), and [Theano](https://github.com/Theano/Theano).
+Coffee (bunna in Amharic) is a thin wrapper currently for [pytorch](https://github.com/pytorch/) and with future support for the three major frameworks: [Caffe](https://github.com/BVLC/caffe), [TensorFlow](https://github.com/tensorflow/tensorflow), and [Theano](https://github.com/Theano/Theano).
 
-coffee's major principle is a unifying API without sacrificing transparency to the underlying frameworks. This will make the wrapper lightweight enough to give a unified API without obscuring the powerful tools of the frameworks with the option to directly expose the power of the underlying framework directly.
+Coffee's major principle is a unifying API without sacrificing transparency to the underlying frameworks. This makes the wrapper lightweight enough to give a unified API without obscuring the powerful tools of the frameworks with the option to directly expose the power of the underlying framework directly via support for:
+
+- an already configured model written in low level underlying framework constructs.
+- training, validation and classification functions written with the underlying framework.
+- a list of losses and a list of their weights supplied to a trainer of a model. This is specially essential when multiple losses from multiple networks need to be combined to influence the parameters of the current model.
+- sample weights that are of same dimensions as targets so that individual targets could be tunued for the case of highly imbalanced datasets.
 
 coffee has the following advantages compared to other wrapper libraries:
 
-- It is designed to be as transparent as TFLearn and Lasagne and with an easy interface like keras
+- It is designed to be as transparent as Lasagne an easy interface like keras.
 - It is designed to be lightweight, easy to experiment with and modular with a common scikit-like interface.
-- The interface makes it easier to convert models back and forth from the underlying frameworks.
-- Its input layers are like caffe (uses caffe principles interface without the pain to write complex prototxt files) data layers that supoort several data sources: lmdb, hdf5 (via h5py) folders and simple stream of numpy arrays or signle image
+- The interface makes it easier to convert models back and forth from the underlying frameworks in the future.
+- Its input layers are similar to caffe with supoort for several data sources: lmdb, hdf5 (via h5py) folders and simple stream of numpy arrays or signle image.
 - It also aims to facilitate interoperability of frameworks by enabling reuse of models trained in one of the frameworks in the others.
-- with eventual goal of making it a one stop place to train deep neural networks in any framework and share trained models in a generic model zoo
-- it will also maintain state-of-the-art results in popular datasets in the future
+- with eventual goal of making it a one stop place to train deep neural networks in any framework and share trained models in a framework agnostic model zoo.
+- it will also maintain state-of-the-art results in popular datasets in the future.
 
 ## Overview
 ```python
