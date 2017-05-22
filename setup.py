@@ -11,12 +11,13 @@ setup(name='coffee',
       download_url='https://github.com/deepnn/coffee/tarball/0.0.0.alpha',
       license='MIT',
       install_requires=[
-          'theano', 
+          #'theano', 
           'pyyaml', 
           'six',
-          'caffe',
-          'lasagne',
-          'tflearn'
+          #'caffe',
+          #'lasagne',
+          #'tflearn',
+          'torch'
       ],
       extras_require={
           'h5py': ['h5py'],
