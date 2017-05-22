@@ -40,7 +40,7 @@ def add_layer_acc(layer, name, args):
 # add a layer to forward computation only
 # this is useful for functional activations 
 # and other networks with no parameters 
-def add_forward(layer, name, args)
+def add_forward(layer, name, args):
     pass
 
 def get_vars():

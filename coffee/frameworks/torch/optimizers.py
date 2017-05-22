@@ -39,7 +39,7 @@ def rms_prop(w, lr=0.01, etas=(0.5,1.2), step_sz=(1e-06, 50)):
     return nn.RMSprop(params=w, lr=lr, etas=etas,
                       step_sizes=step_sz)
 
-def r_prop(w, lr=0.01, etas=(0.5, 1.2), step_sz(1e-06, 50)):
+def r_prop(w, lr=0.01, etas=(0.5, 1.2), step_sz=(1e-06, 50)):
     return nn.Rprop(params=w, lr=lr, etas=etas,
                     step_sizes=step_sz)
 

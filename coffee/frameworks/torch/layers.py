@@ -186,7 +186,7 @@ class Add(nn.Module):
     '''Adds a list of tensors
     '''
     def __init__(self, axis=-1):
-        super(Add, self).
+        super(Add, self).__init__()
         self.axis = axis
 
     def forward(self, *inputs):
@@ -199,11 +199,11 @@ class Add(nn.Module):
         return self.__class__.__name__ + ' (' \
                 + str(self.axis) + ')'
 
-class Concatenate(nn.Module):
+class Concat(nn.Module):
     '''concatenates a list of tensors
     '''
     def __init__(self, axis=-1):
-        super(Add, self).
+        super(Concat, self).__init__()
         self.axis = axis
 
     def forward(self, *inputs):

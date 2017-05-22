@@ -17,7 +17,7 @@ setup(name='coffee',
           #'caffe',
           #'lasagne',
           #'tflearn',
-          'torch'
+          #'torch'
       ],
       extras_require={
           'h5py': ['h5py'],

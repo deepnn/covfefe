@@ -1,7 +1,7 @@
 from __future__ import absolute_import
 from __future__ import print_function
 
-from torch.nn as nn
+import torch.nn as nn
 
 def clip_grad(params, max_norm, norm_type=2):
     return nn.utils.clip_grad_norm(params, max_norm, norm_type)

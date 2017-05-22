@@ -35,4 +35,4 @@ class MergeLayer(Layer):
         raise NotImplementedError
 
     def __call__(self, incomings):
-        raose NotImplementedError
+        raise NotImplementedError
