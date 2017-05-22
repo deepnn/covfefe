@@ -1,7 +1,7 @@
 from __future__ import absolute_import
 from __future__ import print_function
 from collections import OrderedDict
-
+import copy
 import torch 
 import torch.nn as nn
 import torch.nn.functional as F
@@ -13,8 +13,9 @@ class Model(nn.Module):
 		# outputs list, this will be used for reconstructing 
 		# the calls in forwards to make the forward fuction in the model
 		self.outputs = OrderedDict()
-		self.call_queue = forwards.copy() # need to clone this 
-		self.all_layers = all_layers.copy() # need to clone this
+		# Shallow copy
+		self.call_queue = copy.copy(forwards) # need to clone this 
+		self.all_layers = copy.copy(all_layers) # need to clone this
 
 	# This basically iterates thru the forwards queue
 	# and reconstructs the forward function for the model
