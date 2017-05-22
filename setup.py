@@ -38,5 +38,5 @@ setup(name='coffee',
           'Machine Learning',
           'Neural Networks',
           'AI'
-      ]
+      ],
       packages=find_packages())
