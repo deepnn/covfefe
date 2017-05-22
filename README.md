@@ -73,4 +73,9 @@ You can find more examples in the example directory and
 the documentation at [Coffee Docs](http://coffeenet.ml/)
 
 ## Installation
-Coming soon...
+### Install from source
+```
+git clone https://github.com/deepnn/coffee.git
+
+python setup.py install
+```
