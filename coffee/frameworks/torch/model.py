@@ -23,12 +23,12 @@ class Model(nn.Module):
 		self.outputs.clear()
 	    # do the first call on the input
 	    # first call is always without args
-	    layer = self.call_queue.popleft()[0]
+	    layer = self.call_queue[0][0]
 	    x = layer(x)
 	    # Now push the output tensor to outputs
 	    self.outputs[layer.name] = x
-	    while len(call_queue) is not 0:
-	        func_call = self.call_queue.popleft()
+	    for i in range(1,len(call_queue)):
+	        func_call = call_queue[i]
 	        # Now, separate the function from the args
 	        layer = func_call[0]
 	        args = func_call[1:]
