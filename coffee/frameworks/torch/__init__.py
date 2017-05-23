@@ -1,4 +1,4 @@
-from .activatons import *
+from .activations import *
 from .layers import *
 from .math import *
 from .metrics import *

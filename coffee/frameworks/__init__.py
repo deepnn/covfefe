@@ -7,11 +7,9 @@ from .common import epsilon
 from .common import floatx
 from .common import set_epsilon
 from .common import set_floatx
-from .common import get_uid
 from .common import cast_to_floatx
 from .common import image_dim_ordering
 from .common import set_image_dim_ordering
-from .common import is_coffee_tensor
 
 frameworks = {'theano', 'tensorflow', 'caffe', 'torch'}
 frameworks_dim_ordering = {'ch_first', 'ch_last'}
@@ -38,6 +36,7 @@ if os.path.exists(_config_path):
     _framework = _config.get('framework', _FRAMEWORK)
     assert _framework in frameworks
     _image_dim_ordering = _config.get('image_dim_ordering', image_dim_ordering())
+    print(_image_dim_ordering)
     assert _image_dim_ordering in frameworks_dim_ordering
 
     set_floatx(_floatx)
