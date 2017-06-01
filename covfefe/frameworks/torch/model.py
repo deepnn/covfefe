@@ -49,7 +49,7 @@ class Sequential(nn.Module):
 
     def forward(self, input):
 	if isinstance(input.data, torch.cuda.FloatTensor) and self.ngpu > 1:
-            output = nn.parallel.data_parallel(self.main, input, range(self.ngpu))
+            output = nn.parallel.data_parallel(self.net, input, range(self.ngpu))
         else:
             output = self.main(input)
         

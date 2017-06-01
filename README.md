@@ -1,20 +1,20 @@
-# coffee: A Deep Learning Wrapper for deep learning Frameworks
+# covfefe: A Deep Learning Wrapper for deep learning Frameworks
 
-[![Documentation Status](https://readthedocs.org/projects/coffee/badge/?version=latest)](http://coffee.readthedocs.io/en/latest/?badge=latest)
+[![Documentation Status](https://readthedocs.org/projects/covfefe/badge/?version=latest)](http://covfefe.readthedocs.io/en/latest/?badge=latest)
 [![license](https://img.shields.io/github/license/mashape/apistatus.svg?maxAge=2592000)](https://github.com/deepnn/bunna/blob/master/LICENSE)
 
-## Welcome to coffee
+## Welcome to covfefe
 
-Coffee (bunna in Amharic) is a thin wrapper currently for [pytorch](https://github.com/pytorch/) and with future support for the three major frameworks: [Caffe](https://github.com/BVLC/caffe), [TensorFlow](https://github.com/tensorflow/tensorflow), and [Theano](https://github.com/Theano/Theano).
+Covfefe ( in English and bunna in Amharic) is a thin wrapper currently for [pytorch](https://github.com/pytorch/) and with future support for the three major frameworks: [Caffe](https://github.com/BVLC/caffe), [TensorFlow](https://github.com/tensorflow/tensorflow), and [Theano](https://github.com/Theano/Theano).
 
-Coffee's major principle is a unifying API without sacrificing transparency to the underlying frameworks. This makes the wrapper lightweight enough to give a unified API without obscuring the powerful tools of the frameworks with the option to directly expose the power of the underlying framework directly via support for:
+Covfefe's major principle is a unifying API without sacrificing transparency to the underlying frameworks. This makes the wrapper lightweight enough to give a unified API without obscuring the powerful tools of the frameworks with the option to directly expose the power of the underlying framework directly via support for:
 
 - an already configured model written in low level underlying framework constructs.
 - training, validation and classification functions written with the underlying framework.
 - a list of losses and a list of their weights supplied to a trainer of a model. This is specially essential when multiple losses from multiple networks need to be combined to influence the parameters of the current model.
 - sample weights that are of same dimensions as targets so that individual targets could be tunued for the case of highly imbalanced datasets.
 
-coffee has the following advantages compared to other wrapper libraries:
+covfefe has the following advantages compared to other wrapper libraries:
 
 - It is designed to be as transparent as Lasagne an easy interface like keras.
 - It is designed to be lightweight, easy to experiment with and modular with a common scikit-like interface.
@@ -75,12 +75,12 @@ model.fit(X, Y, train_func='', val_func='')
 # Here the internal framework could be exposed
 ```
 You can find more examples in the example directory and 
-the documentation at [Coffee Docs](http://coffeenet.ml/)
+the documentation at [Covfefe Docs](http://coffeenet.ml/)
 
 ## Installation
 ### Install from source
 ```
-git clone https://github.com/deepnn/coffee.git
+git clone https://github.com/deepnn/covfefe.git
 
 python setup.py install
 ```
